@@ -106,7 +106,10 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         NSWorkspace.shared.selectFile(decodedFilePath, inFileViewerRootedAtPath: "")
         //若允许自动打开 则使用控制台打开日志
         if(autoState == false){return}
-        OpenWith.open(decodedFilePath, withAppAtUrl: URL.init(fileURLWithPath: "/System/Applications/Utilities/Console.app"))
+        //若这么写10.14版本路径不对，无法自动打开
+        //OpenWith.open(decodedFilePath, withAppAtUrl: URL.init(fileURLWithPath: "/System/Applications/Utilities/Console.app"))
+        //使用系统默认的打开方式
+        NSWorkspace.shared.openFile(decodedFilePath)
     }
 }
 
