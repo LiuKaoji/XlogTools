@@ -14,8 +14,6 @@
 		E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2DB24FA37D400448893 /* MBDropZone.m */; };
 		E45ED2DF24FA398B00448893 /* decode_mars_log_file.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */; };
 		E45ED2E124FA399300448893 /* decode_mars_log_file_3.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */; };
-		E4FB293324FAB57C00546854 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB293124FAB57C00546854 /* util.swift */; };
-		E4FB293424FAB57C00546854 /* OpenWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB293224FAB57C00546854 /* OpenWith.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +29,6 @@
 		E45ED2DC24FA37D400448893 /* MBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDropZone.h; sourceTree = "<group>"; };
 		E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file.py; sourceTree = "<group>"; };
 		E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file_3.py; sourceTree = "<group>"; };
-		E4FB293124FAB57C00546854 /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
-		E4FB293224FAB57C00546854 /* OpenWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWith.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				E4FB293624FAB68100546854 /* DragView */,
-				E4FB293524FAB66A00546854 /* OpenWith */,
 				E45ED2E224FA399600448893 /* Scripts */,
 				E45ED2CA24FA37C300448893 /* AppDelegate.swift */,
 				E45ED2CC24FA37C300448893 /* ViewController.swift */,
@@ -86,15 +81,6 @@
 				E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */,
 			);
 			path = Scripts;
-			sourceTree = "<group>";
-		};
-		E4FB293524FAB66A00546854 /* OpenWith */ = {
-			isa = PBXGroup;
-			children = (
-				E4FB293224FAB57C00546854 /* OpenWith.swift */,
-				E4FB293124FAB57C00546854 /* util.swift */,
-			);
-			path = OpenWith;
 			sourceTree = "<group>";
 		};
 		E4FB293624FAB68100546854 /* DragView */ = {
@@ -182,8 +168,6 @@
 				E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */,
 				E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */,
 				E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */,
-				E4FB293324FAB57C00546854 /* util.swift in Sources */,
-				E4FB293424FAB57C00546854 /* OpenWith.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +306,7 @@
 				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XlogDecoder/Info.plist;
@@ -329,6 +314,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";
@@ -345,6 +331,7 @@
 				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XlogDecoder/Info.plist;
@@ -352,6 +339,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";

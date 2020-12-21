@@ -151,19 +151,17 @@
 }
 
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
+    
     NSMutableArray* draggedFiles = [[[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType] mutableCopy];
-
+    BOOL isMultiple = draggedFiles.count > 0 ?YES:NO;
     for (NSString* draggedFile in draggedFiles) {
         if ([[draggedFile lowercaseString] hasSuffix:_fileType])
         {
             [self setFile:draggedFile];
-            break;
+            [self draggingExited:nil];
+            [_delegate dropZone:self receivedFile:_file isMultiple:isMultiple];
         }
     }
-
-    [self draggingExited:nil];
-    [_delegate dropZone:self receivedFile:_file];
-
     return YES;
 }
 

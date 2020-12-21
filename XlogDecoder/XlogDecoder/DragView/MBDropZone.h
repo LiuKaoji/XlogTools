@@ -26,6 +26,6 @@
 @end
 
 @protocol MBDropZoneDelegate <NSObject>
-- (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file;
+- (void)dropZone:(MBDropZone*)dropZone receivedFile:(NSString*)file isMultiple:(BOOL)isMultiple;
 
 @end

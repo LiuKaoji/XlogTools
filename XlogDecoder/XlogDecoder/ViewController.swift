@@ -62,7 +62,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         UserDefaults.standard.set(autoState, forKey: "AutoTag")
     }
     
-    func runScript2Decode(xlogPath: String){
+    func runScript2Decode(xlogPath: String, autoOpen:Bool){
         
         let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
         taskQueue.async {
@@ -85,7 +85,9 @@ class ViewController: NSViewController,MBDropZoneDelegate {
             buildTask.terminationHandler = { task in
                 DispatchQueue.main.async(execute: {
                     debugPrint("任务结束")
-                    self.toOpenFile(decodedFilePath: xlogPath + ".log")
+                    if(autoOpen){
+                        self.toOpenFile(decodedFilePath: xlogPath + ".log")
+                    }
                 })
             }
             
@@ -115,14 +117,18 @@ class ViewController: NSViewController,MBDropZoneDelegate {
 
 extension ViewController{
     
-    func dropZone(_ dropZone: MBDropZone!, receivedFile file: String!) {
+    func dropZone(_ dropZone: MBDropZone!, receivedFile file: String!, isMultiple: Bool) {
         
         //带LiteAV_R的是未加密日志 直接打开
         if(file.contains("LiteAV_R")){
-            self.toOpenFile(decodedFilePath: file)
+            let extPath = file + ".log"
+            try? FileManager.default.copyItem(atPath: file, toPath: extPath)
+            if !isMultiple {
+                self.toOpenFile(decodedFilePath: extPath)
+            }
             return
         }
         //使用系统Python和官方xlog解压脚本进行解压,并打开
-        self.runScript2Decode(xlogPath: file)
+        self.runScript2Decode(xlogPath: file,autoOpen: !isMultiple)
     }
 }
