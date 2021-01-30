@@ -19,8 +19,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     @IBOutlet weak var autoCheckBox: NSButton!
     @IBOutlet weak var backBtn: NSButton!
     
-    lazy var coverView =  CoverView.init(frame: self.view.frame)
-    var monitorView: TableView!
+    lazy var monitorView: TableView = .init(frame: self.view.frame)
     fileprivate var adapter: AdapterTableView?
     
     override func viewDidLoad() {
@@ -58,11 +57,9 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         pyTextField.stringValue = "您当前正使用 Python" + "(" + (result?.first ?? "unknown") + ")"
         
         //进房事件列表
-        monitorView = TableView(frame: CGRect.init(x: 0, y: 40, width: self.coverView.frame.size.width, height: self.coverView.frame.size.height - 40))
-        coverView.addSubview(monitorView)
-        self.view.addSubview(coverView)
-        self.coverView.addSubview(backBtn)
-        self.coverView.isHidden = true
+        monitorView.addSubview(backBtn)
+        self.view.addSubview(monitorView)
+        self.monitorView.isHidden = true
     
     }
 
@@ -79,12 +76,13 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     }
     
     @IBAction func onClickOk(_ sender: Any) {
-        self.coverView.isHidden = true
+        self.monitorView.isHidden = true
     }
+    
     func configureTableView() {
         adapter = AdapterTableView(tableView: monitorView.tableView)
         adapter?.add(items: monitorModels!)
-        self.coverView.isHidden = false
+        self.monitorView.isHidden = false
     }
     
     //MARK: 执行解码动作
