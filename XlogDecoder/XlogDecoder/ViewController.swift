@@ -13,15 +13,22 @@ class ViewController: NSViewController,MBDropZoneDelegate {
 
     var scriptName:String?
     var autoState:Bool =  UserDefaults.standard.bool(forKey: "AutoTag")
+    var monitorModels: Array<MonitorModel>?
     @IBOutlet weak var pyTextField: NSTextField!
     @IBOutlet weak var versionSegment: NSSegmentedControl!
     @IBOutlet weak var autoCheckBox: NSButton!
+    @IBOutlet weak var backBtn: NSButton!
+    
+    lazy var coverView =  CoverView.init(frame: self.view.frame)
+    var monitorView: TableView!
+    fileprivate var adapter: AdapterTableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+   
+    //MARK: UI
     func setupUI(){
         
         //初次安装默认自动打开日志
@@ -49,8 +56,17 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         let pyVersionStr  = drapZone.convertCString(UnsafeMutablePointer<Int8>.init(mutating: Py_GetVersion()))
         let result = pyVersionStr?.components(separatedBy: " ")
         pyTextField.stringValue = "您当前正使用 Python" + "(" + (result?.first ?? "unknown") + ")"
+        
+        //进房事件列表
+        monitorView = TableView(frame: CGRect.init(x: 0, y: 40, width: self.coverView.frame.size.width, height: self.coverView.frame.size.height - 40))
+        coverView.addSubview(monitorView)
+        self.view.addSubview(coverView)
+        self.coverView.addSubview(backBtn)
+        self.coverView.isHidden = true
+    
     }
 
+    //MARK: 点击事件
     @IBAction func versionSegmentValueChange(_ sender: Any) {
         UserDefaults.standard.set(self.versionSegment.selectedSegment, forKey: "VersionTag")
         scriptName = (self.versionSegment.selectedSegment == 0) ?"decode_mars_log_file":"decode_mars_log_file_3"
@@ -62,6 +78,16 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         UserDefaults.standard.set(autoState, forKey: "AutoTag")
     }
     
+    @IBAction func onClickOk(_ sender: Any) {
+        self.coverView.isHidden = true
+    }
+    func configureTableView() {
+        adapter = AdapterTableView(tableView: monitorView.tableView)
+        adapter?.add(items: monitorModels!)
+        self.coverView.isHidden = false
+    }
+    
+    //MARK: 执行解码动作
     func runScript2Decode(xlogPath: String, autoOpen:Bool){
         
         let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
@@ -86,7 +112,8 @@ class ViewController: NSViewController,MBDropZoneDelegate {
                 DispatchQueue.main.async(execute: {
                     debugPrint("任务结束")
                     if(autoOpen){
-                        self.toOpenFile(decodedFilePath: xlogPath + ".log")
+                        self.toOpenFile(decodedPath: xlogPath + ".log")
+                        self.toMatchEnterRoom(decodedPath: xlogPath + ".log")
                     }
                 })
             }
@@ -99,22 +126,69 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         }
     }
     
-    func toOpenFile(decodedFilePath:String){
+    func toOpenFile(decodedPath:String){
         
         //若文件存在 主动打开
-        if(FileManager.default.fileExists(atPath: decodedFilePath) == false){return}
+        if(FileManager.default.fileExists(atPath: decodedPath) == false){return}
         
         //打开并选中解压的文件
-        NSWorkspace.shared.selectFile(decodedFilePath, inFileViewerRootedAtPath: "")
+        NSWorkspace.shared.selectFile(decodedPath, inFileViewerRootedAtPath: "")
         //若允许自动打开 则使用控制台打开日志
         if(autoState == false){return}
         //若这么写10.14版本路径不对，无法自动打开
-        //OpenWith.open(decodedFilePath, withAppAtUrl: URL.init(fileURLWithPath: "/System/Applications/Utilities/Console.app"))
+        //OpenWith.open(decodedPath, withAppAtUrl: URL.init(fileURLWithPath: "/System/Applications/Utilities/Console.app"))
         //使用系统默认的打开方式
-        NSWorkspace.shared.openFile(decodedFilePath)
+        NSWorkspace.shared.openFile(decodedPath)
+    }
+    
+    func toMatchEnterRoom(decodedPath: String) {
+        
+        guard  let logs = try? String.init(contentsOfFile: decodedPath) else {
+            return
+        }
+        
+        guard logs.count > 0 else {
+            return
+        }
+        
+        let regx = "([\\d\\s\\-\\+\\s:\\.]{20,}).*trtc_api[\\s,]+enterRoom roomId:(.*?)\\suserId:(.*?)\\ssdkAppId:(.*?)\\s"
+        let regExp = try? NSRegularExpression.init(pattern: regx, options: .caseInsensitive)
+        let matches = regExp!.matches(in: logs, range: NSRange.init(location: 0, length: logs.count))
+        
+        monitorModels = Array<MonitorModel>()
+        
+        for match in matches {
+            var monitorModel = MonitorModel()
+            monitorModel.enterEvent = logs.substring(with: Range.init(match.range(at: 0), in: logs)!)
+            monitorModel.time = logs.substring(with: Range.init(match.range(at: 1), in: logs)!)
+            monitorModel.roomId = logs.substring(with: Range.init(match.range(at: 2), in: logs)!)
+            monitorModel.userId = logs.substring(with: Range.init(match.range(at: 3), in: logs)!)
+            monitorModel.sdkAppid = logs.substring(with: Range.init(match.range(at: 4), in: logs)!)
+            monitorModel.timestamp = "\(timeToTimeStamp(time: monitorModel.time, inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
+
+            monitorModels?.append(monitorModel)
+        
+        }
+        
+        guard monitorModels?.count ?? 0 > 0 else {
+            return
+        }
+        
+        configureTableView()
+    }
+    
+    ///时间转时间戳
+    func timeToTimeStamp(time: String ,inputFormatter:String) -> Int {
+        let dfmatter = DateFormatter()
+       //设定时间格式,这里可以设置成自己需要的格式
+        dfmatter.dateFormat = inputFormatter
+        let last = dfmatter.date(from: time)
+        let timeStamp = last?.timeIntervalSince1970
+        return Int(timeStamp ?? 0)
     }
 }
 
+//MARK: 拖拽代理事件
 extension ViewController{
     
     func dropZone(_ dropZone: MBDropZone!, receivedFile file: String!, isMultiple: Bool) {
@@ -124,7 +198,7 @@ extension ViewController{
             let extPath = file + ".log"
             try? FileManager.default.copyItem(atPath: file, toPath: extPath)
             if !isMultiple {
-                self.toOpenFile(decodedFilePath: extPath)
+                self.toOpenFile(decodedPath: extPath)
             }
             return
         }
@@ -132,3 +206,4 @@ extension ViewController{
         self.runScript2Decode(xlogPath: file,autoOpen: !isMultiple)
     }
 }
+

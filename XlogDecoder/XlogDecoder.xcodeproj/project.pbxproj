@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E444911925C565BC00F90C65 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911825C565BB00F90C65 /* AdapterTableView.swift */; };
+		E444911C25C566A400F90C65 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911B25C566A400F90C65 /* TableView.swift */; };
+		E444911F25C56A7E00F90C65 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911E25C56A7E00F90C65 /* BaseView.swift */; };
 		E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2CA24FA37C300448893 /* AppDelegate.swift */; };
 		E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2CC24FA37C300448893 /* ViewController.swift */; };
 		E45ED2CF24FA37C400448893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2CE24FA37C400448893 /* Assets.xcassets */; };
@@ -14,9 +17,14 @@
 		E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2DB24FA37D400448893 /* MBDropZone.m */; };
 		E45ED2DF24FA398B00448893 /* decode_mars_log_file.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */; };
 		E45ED2E124FA399300448893 /* decode_mars_log_file_3.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */; };
+		E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D63ED25C5819400E21D0D /* MonitorModel.swift */; };
+		E46D63F425C5827700E21D0D /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D63F325C5827700E21D0D /* CoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E444911825C565BB00F90C65 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
+		E444911B25C566A400F90C65 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		E444911E25C56A7E00F90C65 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E45ED2C724FA37C300448893 /* Xlog解压工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xlog解压工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45ED2CA24FA37C300448893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E45ED2CC24FA37C300448893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +37,8 @@
 		E45ED2DC24FA37D400448893 /* MBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDropZone.h; sourceTree = "<group>"; };
 		E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file.py; sourceTree = "<group>"; };
 		E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file_3.py; sourceTree = "<group>"; };
+		E46D63ED25C5819400E21D0D /* MonitorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorModel.swift; sourceTree = "<group>"; };
+		E46D63F325C5827700E21D0D /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +71,7 @@
 		E45ED2C924FA37C300448893 /* XlogDecoder */ = {
 			isa = PBXGroup;
 			children = (
-				E4FB293624FAB68100546854 /* DragView */,
-				E45ED2E224FA399600448893 /* Scripts */,
+				E46D63EC25C5817500E21D0D /* Module */,
 				E45ED2CA24FA37C300448893 /* AppDelegate.swift */,
 				E45ED2CC24FA37C300448893 /* ViewController.swift */,
 				E45ED2CE24FA37C400448893 /* Assets.xcassets */,
@@ -81,6 +90,36 @@
 				E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		E46D63EB25C5817100E21D0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E46D63ED25C5819400E21D0D /* MonitorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E46D63EC25C5817500E21D0D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E45ED2E224FA399600448893 /* Scripts */,
+				E46D63EB25C5817100E21D0D /* Model */,
+				E480010425C571EB004BFE58 /* MonitorTable */,
+				E4FB293624FAB68100546854 /* DragView */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E480010425C571EB004BFE58 /* MonitorTable */ = {
+			isa = PBXGroup;
+			children = (
+				E444911825C565BB00F90C65 /* AdapterTableView.swift */,
+				E444911B25C566A400F90C65 /* TableView.swift */,
+				E444911E25C56A7E00F90C65 /* BaseView.swift */,
+				E46D63F325C5827700E21D0D /* CoverView.swift */,
+			);
+			path = MonitorTable;
 			sourceTree = "<group>";
 		};
 		E4FB293624FAB68100546854 /* DragView */ = {
@@ -128,7 +167,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E45ED2C224FA37C300448893 /* Build configuration list for PBXProject "Xlog解压工具" */;
+			buildConfigurationList = E45ED2C224FA37C300448893 /* Build configuration list for PBXProject "XlogDecoder" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,8 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */,
+				E444911C25C566A400F90C65 /* TableView.swift in Sources */,
+				E444911925C565BC00F90C65 /* AdapterTableView.swift in Sources */,
+				E444911F25C56A7E00F90C65 /* BaseView.swift in Sources */,
+				E46D63F425C5827700E21D0D /* CoverView.swift in Sources */,
 				E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */,
 				E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */,
+				E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +345,10 @@
 		E45ED2D824FA37C400448893 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
@@ -314,7 +362,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";
@@ -326,6 +376,10 @@
 		E45ED2D924FA37C400448893 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
@@ -339,7 +393,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";
@@ -350,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E45ED2C224FA37C300448893 /* Build configuration list for PBXProject "Xlog解压工具" */ = {
+		E45ED2C224FA37C300448893 /* Build configuration list for PBXProject "XlogDecoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E45ED2D524FA37C400448893 /* Debug */,

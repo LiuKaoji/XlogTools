@@ -17,7 +17,7 @@
                BlueprintIdentifier = "E45ED2C624FA37C300448893"
                BuildableName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.app"
                BlueprintName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;"
-               ReferencedContainer = "container:Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.xcodeproj">
+               ReferencedContainer = "container:XlogDecoder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "E45ED2C624FA37C300448893"
             BuildableName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.app"
             BlueprintName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;"
-            ReferencedContainer = "container:Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.xcodeproj">
+            ReferencedContainer = "container:XlogDecoder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "E45ED2C624FA37C300448893"
             BuildableName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.app"
             BlueprintName = "Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;"
-            ReferencedContainer = "container:Xlog&#x89e3;&#x538b;&#x5de5;&#x5177;.xcodeproj">
+            ReferencedContainer = "container:XlogDecoder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
