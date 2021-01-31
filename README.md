@@ -3,6 +3,7 @@
 ![platform](https://img.shields.io/badge/platform-macos-lightgrey.svg)  
 
 ![XlogDecoder](https://github.com/LiuKaoji/XlogDecoder/blob/master/screenshot.png)
+![XlogDecoder](https://github.com/LiuKaoji/XlogDecoder/blob/master/screenshot_list.png)
 
 ### 安装
 
