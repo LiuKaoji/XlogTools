@@ -66,9 +66,18 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
         }
         
         let model = items[selectedRow]
+        
+        var monitorLink = "http://monitor.yy.isd.com/trtc/monitor?userId=\(model.userId)&roomNum=\(model.roomId)&roomStr=\(model.roomId)&sdkAppId=\(model.sdkAppid)&createTime=\(model.timestamp)"
+        monitorLink = monitorLink.replacingOccurrences(of: " ", with: "")
+        monitorLink = monitorLink.replacingOccurrences(of: "()", with: "")
+        
+        
+        guard let monitorURL = URL(string:monitorLink) else {
+           debugPrint("Open MonitorURL Error")
+           return
+        }
 
-        NSWorkspace.shared.open(URL(string: "http://monitor.yy.isd.com/trtc/monitor?userId=\(model.userId)&roomNum=\(model.roomId)&roomStr=\(model.roomId)&sdkAppId=\(model.sdkAppid)&createTime=\(model.timestamp)")!)
+        NSWorkspace.shared.open(monitorURL)
     }
     
-
 }

@@ -141,6 +141,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     
     func toMatchEnterRoom(decodedPath: String) {
         
+        ///test:---------- let testLog = Bundle.main.path(forResource: "an.xlog", ofType: ".log")
         guard  let logs = try? String.init(contentsOfFile: decodedPath) else {
             return
         }
