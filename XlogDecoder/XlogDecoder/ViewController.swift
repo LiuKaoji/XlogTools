@@ -13,7 +13,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
 
     var scriptName:String?
     var autoState:Bool =  UserDefaults.standard.bool(forKey: "AutoTag")
-    var monitorModels: Array<MonitorModel>?
+    var monitorModels :Array<MonitorModel>?
     @IBOutlet weak var pyTextField: NSTextField!
     @IBOutlet weak var versionSegment: NSSegmentedControl!
     @IBOutlet weak var autoCheckBox: NSButton!
@@ -24,6 +24,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        monitorModels = Array<MonitorModel>()
         setupUI()
     }
    
@@ -111,8 +112,8 @@ class ViewController: NSViewController,MBDropZoneDelegate {
                     debugPrint("任务结束")
                     if(autoOpen){
                         self.toOpenFile(decodedPath: xlogPath + ".log")
-                        self.toMatchEnterRoom(decodedPath: xlogPath + ".log")
                     }
+                    self.toMatchEnterRoom(decodedPath: xlogPath + ".log")
                 })
             }
             
@@ -154,7 +155,6 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         let regExp = try? NSRegularExpression.init(pattern: regx, options: .caseInsensitive)
         let matches = regExp!.matches(in: logs, range: NSRange.init(location: 0, length: logs.count))
         
-        monitorModels = Array<MonitorModel>()
         
         for match in matches {
             var monitorModel = MonitorModel()
@@ -201,6 +201,9 @@ extension ViewController{
             }
             return
         }
+        monitorModels?.removeAll()
+        monitorView.tableView.reloadData()
+        
         //使用系统Python和官方xlog解压脚本进行解压,并打开
         self.runScript2Decode(xlogPath: file,autoOpen: !isMultiple)
     }

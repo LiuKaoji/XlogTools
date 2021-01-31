@@ -119,9 +119,9 @@
                                 </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUe-rJ-zlp">
-                                <rect key="frame" x="388" y="288" width="148" height="18"/>
+                                <rect key="frame" x="388" y="288" width="130" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="自动打开/检测进房事件" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
+                                <buttonCell key="cell" type="check" title="单文件自动打开日志" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" size="12" name="STKaiti"/>
                                 </buttonCell>
