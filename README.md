@@ -3,26 +3,21 @@
 ![platform](https://img.shields.io/badge/platform-macos-lightgrey.svg)  
 
 ![XlogDecoder](https://github.com/LiuKaoji/XlogDecoder/blob/master/screenshot.png)
-### 说明
-* 
-* **本项目只用于学习和交流，方便查看LiteAVSDK和IMSDK日志
-
-* **本程序包含Python2.x和3.x的解密脚本,请选择与系统环境匹配的脚本
-
-* 本项目所使用脚本来源于腾讯官网公开脚本,与本人无关
-
-* 程序在python 2.7.16环境测试通过,其他环境需要自行测试
 
 ### 安装
 
-1. 下载源码使用Xcode编译
-2. 直接下载release版本程序运行
+1.下载源码使用Xcode编译
+2. 直接下载release版本程序运行(不推荐 证书失效会闪退)
 
 
-### 使用
+### 操作说明
+```bash
+01.单文件操作,可勾选自动打开日志
+02.多文件操作,拖拽多个文件同时解压
+03.自动检测TRTC调用Enter Room API事件,列表展示
+04.基于02和03可以批量导入日志 检测所有进房事件,单击列表跳转仪表盘
+```
 
-直接将xlog日志拖拽到界面,会在日志当前目录生成.log解密文件
-
-## SDK日志
+## 参考日志提取文档
 https://cloud.tencent.com/developer/article/1505242
  
