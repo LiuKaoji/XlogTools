@@ -18,6 +18,8 @@
 		E45ED2DF24FA398B00448893 /* decode_mars_log_file.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */; };
 		E45ED2E124FA399300448893 /* decode_mars_log_file_3.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */; };
 		E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D63ED25C5819400E21D0D /* MonitorModel.swift */; };
+		E46D648425C6C39700E21D0D /* Array + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D648325C6C39700E21D0D /* Array + ext.swift */; };
+		E46D648825C6C3CB00E21D0D /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D648725C6C3CB00E21D0D /* String + ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file.py; sourceTree = "<group>"; };
 		E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file_3.py; sourceTree = "<group>"; };
 		E46D63ED25C5819400E21D0D /* MonitorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorModel.swift; sourceTree = "<group>"; };
+		E46D648325C6C39700E21D0D /* Array + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + ext.swift"; sourceTree = "<group>"; };
+		E46D648725C6C3CB00E21D0D /* String + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		E45ED2C924FA37C300448893 /* XlogDecoder */ = {
 			isa = PBXGroup;
 			children = (
+				E46D647E25C6C33800E21D0D /* Extension */,
 				E46D63EC25C5817500E21D0D /* Module */,
 				E45ED2CA24FA37C300448893 /* AppDelegate.swift */,
 				E45ED2CC24FA37C300448893 /* ViewController.swift */,
@@ -101,12 +106,29 @@
 		E46D63EC25C5817500E21D0D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				E46D647C25C6C2D600E21D0D /* View */,
 				E45ED2E224FA399600448893 /* Scripts */,
 				E46D63EB25C5817100E21D0D /* Model */,
-				E480010425C571EB004BFE58 /* MonitorTable */,
-				E4FB293624FAB68100546854 /* DragView */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		E46D647C25C6C2D600E21D0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4FB293624FAB68100546854 /* DragView */,
+				E480010425C571EB004BFE58 /* MonitorTable */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E46D647E25C6C33800E21D0D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E46D648325C6C39700E21D0D /* Array + ext.swift */,
+				E46D648725C6C3CB00E21D0D /* String + ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E480010425C571EB004BFE58 /* MonitorTable */ = {
@@ -202,12 +224,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */,
+				E46D648825C6C3CB00E21D0D /* String + ext.swift in Sources */,
 				E444911C25C566A400F90C65 /* TableView.swift in Sources */,
 				E444911925C565BC00F90C65 /* AdapterTableView.swift in Sources */,
 				E444911F25C56A7E00F90C65 /* BaseView.swift in Sources */,
 				E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */,
 				E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */,
 				E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */,
+				E46D648425C6C39700E21D0D /* Array + ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

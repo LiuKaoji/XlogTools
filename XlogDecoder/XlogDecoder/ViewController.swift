@@ -19,6 +19,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     @IBOutlet weak var autoCheckBox: NSButton!
     @IBOutlet weak var backBtn: NSButton!
     
+    lazy var drapZone = MBDropZone.init(frame: self.view.frame)
     lazy var monitorView: TableView = .init(frame: self.view.frame)
     fileprivate var adapter: AdapterTableView?
     
@@ -46,7 +47,6 @@ class ViewController: NSViewController,MBDropZoneDelegate {
         self.autoCheckBox.state = autoState ?.on:.off
         
         //创建拖拽文件区域
-        let drapZone = MBDropZone.init(frame: self.view.frame)
         drapZone.text = "请拖入文件"
         drapZone.fileType = ".xlog"
         drapZone.delegate = self
@@ -78,6 +78,7 @@ class ViewController: NSViewController,MBDropZoneDelegate {
     
     @IBAction func onClickOk(_ sender: Any) {
         self.monitorView.isHidden = true
+        drapZone.text = "请拖入文件"
     }
     
     func configureTableView() {
@@ -163,27 +164,25 @@ class ViewController: NSViewController,MBDropZoneDelegate {
             monitorModel.roomId = logs.substring(with: Range.init(match.range(at: 2), in: logs)!)
             monitorModel.userId = logs.substring(with: Range.init(match.range(at: 3), in: logs)!)
             monitorModel.sdkAppid = logs.substring(with: Range.init(match.range(at: 4), in: logs)!)
-            monitorModel.timestamp = "\(timeToTimeStamp(time: monitorModel.time, inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
-
+            monitorModel.timestamp = "\(String.timeToTimeStamp(time: monitorModel.time, inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
+            monitorModel.dayMaxStamp = "\(String.timeToTimeStamp(time: monitorModel.time.prefix(10) + " +8.0 23:59:59.999", inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
+            
+            
             monitorModels?.append(monitorModel)
         
         }
+        
+        /// 去重排序 如果我批量解压过 会有两种日志 这时候全部拖进来也不影响 不重复
+        let filterModels:Array<MonitorModel> = (monitorModels?.filterDuplicates({$0.enterEvent}))!
+        monitorModels = filterModels.sorted(by: { (previous, next) -> Bool in
+            return previous.time < next.time
+        })
         
         guard monitorModels?.count ?? 0 > 0 else {
             return
         }
         
         configureTableView()
-    }
-    
-    ///时间转时间戳
-    func timeToTimeStamp(time: String ,inputFormatter:String) -> Int {
-        let dfmatter = DateFormatter()
-       //设定时间格式,这里可以设置成自己需要的格式
-        dfmatter.dateFormat = inputFormatter
-        let last = dfmatter.date(from: time)
-        let timeStamp = last?.timeIntervalSince1970
-        return Int(timeStamp ?? 0)
     }
 }
 
@@ -199,6 +198,7 @@ extension ViewController{
             if !isMultiple {
                 self.toOpenFile(decodedPath: extPath)
             }
+            self.toMatchEnterRoom(decodedPath: extPath)
             return
         }
         monitorModels?.removeAll()

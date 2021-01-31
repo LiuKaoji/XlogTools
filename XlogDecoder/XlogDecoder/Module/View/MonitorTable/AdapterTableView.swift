@@ -40,7 +40,7 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard (tableColumn?.identifier)!.rawValue == AdapterTableView.column else { fatalError("AdapterTableView identifier not found") }
         let model:MonitorModel = items[row]
-        let name = "进房:\(model.time) App:\(model.sdkAppid) 房间号:\(model.roomId) 用户:\(model.userId)"
+        let name = "⏰进房时间:\(model.time) 🏬sdkAppId:\(model.sdkAppid) 👨‍👩‍👧‍👦roomId:\(model.roomId) 🙋‍♂️userId:\(model.userId)".replacingOccurrences(of: "+8.0", with: "")
         let view = NSTextField(string: name)
         view.isEditable = false
         view.isBordered = false
@@ -66,11 +66,9 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
         }
         
         let model = items[selectedRow]
-        
-        var monitorLink = "http://monitor.yy.isd.com/trtc/monitor?userId=\(model.userId)&roomNum=\(model.roomId)&roomStr=\(model.roomId)&sdkAppId=\(model.sdkAppid)&createTime=\(model.timestamp)"
+        var monitorLink = "http://monitor.yy.isd.com/trtc/monitor?userId=\(model.userId)&roomNum=\(model.roomId)&roomStr=\(model.roomId)&sdkAppId=\(model.sdkAppid)&StartTs=\(model.timestamp)&EndTs=\(model.dayMaxStamp)"
         monitorLink = monitorLink.replacingOccurrences(of: " ", with: "")
         monitorLink = monitorLink.replacingOccurrences(of: "()", with: "")
-        
         
         guard let monitorURL = URL(string:monitorLink) else {
            debugPrint("Open MonitorURL Error")

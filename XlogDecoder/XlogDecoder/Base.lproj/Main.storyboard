@@ -101,11 +101,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Xlog解压工具" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcB-BT-7cn">
-                                <rect key="frame" x="258" y="284" width="85" height="24"/>
+                                <rect key="frame" x="308" y="361" width="85" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="6kH-3x-CJJ">
                                     <font key="font" metaFont="system"/>
@@ -119,7 +119,7 @@
                                 </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUe-rJ-zlp">
-                                <rect key="frame" x="388" y="288" width="130" height="18"/>
+                                <rect key="frame" x="433" y="364" width="130" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="单文件自动打开日志" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -129,17 +129,8 @@
                                     <action selector="onClickAuto:" target="XfG-lQ-9wD" id="Eab-5M-220"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-wV-0Ty">
-                                <rect key="frame" x="-2" y="413" width="484" height="16"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="您当前正使用Python 2.x" id="caW-yO-aZi">
-                                    <font key="font" size="10" name="STKaiti"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2S-qM-oEy">
-                                <rect key="frame" x="267" y="2" width="67" height="32"/>
+                                <rect key="frame" x="317" y="13" width="67" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="返回" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3ac-IQ-H4A">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -149,6 +140,15 @@
                                     <action selector="onClickOk:" target="XfG-lQ-9wD" id="Y8V-Qi-h9h"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-wV-0Ty">
+                                <rect key="frame" x="108" y="328" width="484" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="您当前正使用Python 2.x" id="caW-yO-aZi">
+                                    <font key="font" size="10" name="STKaiti"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>

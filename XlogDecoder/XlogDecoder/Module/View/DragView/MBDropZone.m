@@ -28,19 +28,19 @@
     dirtyRect = NSMakeRect(dirtyRect.origin.x + 5, dirtyRect.origin.y + 5, dirtyRect.size.width - 10, dirtyRect.size.height - 10);
 
     // Rounded Rectangle Drawing
-    if (!_file)
-    {
+    //if (!_file)
+    //{
         NSBezierPath* roundedRectanglePath = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:8 yRadius:8];
         _isHoveringFile ? [color3 setStroke] : [color setStroke];
         [roundedRectanglePath setLineWidth:2];
         CGFloat roundedRectanglePattern[] = {6, 6, 6, 6};
         [roundedRectanglePath setLineDash:roundedRectanglePattern count:4 phase:0];
         [roundedRectanglePath stroke];
-    }
+    //}
 
     if (_text)
     {
-        NSRect textRect = NSMakeRect(dirtyRect.origin.x, 75, dirtyRect.size.width, 25);
+        NSRect textRect = NSMakeRect(dirtyRect.origin.x, 165, dirtyRect.size.width, 25);
 
         NSMutableParagraphStyle* textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
         [textStyle setAlignment:NSCenterTextAlignment];
@@ -78,7 +78,7 @@
 
     if (_fileType)
     {
-        NSRect textRect2 = NSMakeRect(dirtyRect.origin.x, 95, dirtyRect.size.width, 30);
+        NSRect textRect2 = NSMakeRect(dirtyRect.origin.x, 140, dirtyRect.size.width, 30);
 
         NSMutableParagraphStyle* textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
         [textStyle setAlignment:NSCenterTextAlignment];
@@ -93,7 +93,7 @@
 
     if (_icon)
     {
-        [_icon drawInRect:NSMakeRect(dirtyRect.size.width/2-16+6, 135, 32, 32)];
+        [_icon drawInRect:NSMakeRect(dirtyRect.size.width/2-16+6, 200, 32, 32)];
     }
 }
 
@@ -122,8 +122,6 @@
 
 - (void)setFile:(NSString *)file {
     _file = file;
-
-    [self setText:[[file lastPathComponent] stringByDeletingPathExtension]];
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
@@ -154,6 +152,9 @@
     
     NSMutableArray* draggedFiles = [[[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType] mutableCopy];
     BOOL isMultiple = draggedFiles.count > 1 ?YES:NO;
+    
+    [self setText:[NSString stringWithFormat:@"已拖入%zd个日志", draggedFiles.count]];
+    
     for (NSString* draggedFile in draggedFiles) {
         if ([[draggedFile lowercaseString] hasSuffix:_fileType])
         {

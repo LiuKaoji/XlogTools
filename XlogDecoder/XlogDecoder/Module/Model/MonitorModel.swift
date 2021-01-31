@@ -7,10 +7,11 @@
 //
 
 struct MonitorModel {
-    var enterEvent = ""
-    var sdkAppid = ""
-    var roomId = ""
-    var userId = ""
-    var time = ""
-    var timestamp = ""
+    var enterEvent = ""/// EnterRoom
+    var sdkAppid = ""///应用标识
+    var roomId = ""///房间Id
+    var userId = ""///用户id
+    var time = ""///来自日志的时间
+    var timestamp = ""//日志时间转UNIX时间戳
+    var dayMaxStamp = ""///当天最晚点的时间戳
 }
