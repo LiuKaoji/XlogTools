@@ -21,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
+    @IBAction func onClickSourceCode(_ sender: Any) {
+        NSWorkspace.shared.open(URL.init(string: "https://github.com/LiuKaoji/XlogDecoder-Mac")!)
+    }
+    
 }
 

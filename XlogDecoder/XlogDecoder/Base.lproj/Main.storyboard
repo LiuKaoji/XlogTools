@@ -23,6 +23,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="源码" id="bbN-PO-BF6">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="onClickSourceCode:" target="Voe-Tx-rLC" id="21m-wS-1UG"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
                                         <menuItem title="退出" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
