@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,40 +30,16 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="更新" id="hZm-Kc-6OK">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="onClickCheckForUpdate:" target="Voe-Tx-rLC" id="Hhe-Pp-Fkz"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="WqK-20-fxv"/>
                                         <menuItem title="退出" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="文件" id="dMs-cI-mzQ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="文件" id="bib-Uj-vzu">
-                                    <items>
-                                        <menuItem title="打开" keyEquivalent="o" id="IAo-SY-fd9">
-                                            <connections>
-                                                <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="关闭" keyEquivalent="w" id="DVo-aG-piG">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="窗口" id="aUF-d1-5bR">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="窗口" systemMenu="window" id="Td7-aD-5lo">
-                                    <items>
-                                        <menuItem title="最小化" keyEquivalent="m" id="OY7-WF-poV">
-                                            <connections>
-                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -75,7 +51,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Xlog解压工具" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="XlogDec" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,7 +61,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Xlog解密工具" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="XlogDec" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -102,16 +78,44 @@
             </objects>
             <point key="canvasLocation" x="-47" y="99"/>
         </scene>
-        <!--View Controller-->
+        <!--Dec View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Xlog解压工具" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="DecViewController" customModule="XlogDec" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="700" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9y-oE-jnU" customClass="DropView" customModule="XlogDec" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUe-rJ-zlp">
+                                        <rect key="frame" x="426" y="564" width="130" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="单文件自动打开" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" size="12" name="STKaiti"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onClickAutoOpen:" target="XfG-lQ-9wD" id="Eab-5M-220"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-78-OuG">
+                                        <rect key="frame" x="544" y="564" width="130" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="进房事件检测" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tfI-C1-W7Z">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" size="12" name="STKaiti"/>
+                                            <connections>
+                                                <action selector="onClickRoomCheck:" target="XfG-lQ-9wD" id="0o0-l0-Xhy"/>
+                                            </connections>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                            </customView>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcB-BT-7cn">
-                                <rect key="frame" x="308" y="361" width="85" height="24"/>
+                                <rect key="frame" x="308" y="561" width="85" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="6kH-3x-CJJ">
                                     <font key="font" metaFont="system"/>
@@ -121,33 +125,11 @@
                                     </segments>
                                 </segmentedCell>
                                 <connections>
-                                    <action selector="versionSegmentValueChange:" target="XfG-lQ-9wD" id="NYR-As-S6T"/>
+                                    <action selector="onScriptSegmentChange:" target="XfG-lQ-9wD" id="NYR-As-S6T"/>
                                 </connections>
                             </segmentedControl>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUe-rJ-zlp">
-                                <rect key="frame" x="433" y="364" width="130" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="单文件自动打开日志" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" size="12" name="STKaiti"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onClickAuto:" target="XfG-lQ-9wD" id="Eab-5M-220"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2S-qM-oEy">
-                                <rect key="frame" x="317" y="13" width="67" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="返回" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3ac-IQ-H4A">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onClickOk:" target="XfG-lQ-9wD" id="Y8V-Qi-h9h"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-wV-0Ty">
-                                <rect key="frame" x="108" y="328" width="484" height="16"/>
+                                <rect key="frame" x="225" y="514" width="251" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="您当前正使用Python 2.x" id="caW-yO-aZi">
                                     <font key="font" size="10" name="STKaiti"/>
@@ -158,15 +140,30 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="autoCheckBox" destination="lUe-rJ-zlp" id="8kx-Bk-VZq"/>
-                        <outlet property="backBtn" destination="S2S-qM-oEy" id="iwG-tp-J23"/>
+                        <outlet property="autoCheckBox" destination="y7N-78-OuG" id="Bhb-4b-f3U"/>
+                        <outlet property="autoOpenBox" destination="lUe-rJ-zlp" id="I8P-FS-prN"/>
+                        <outlet property="dropView" destination="R9y-oE-jnU" id="YC0-57-Jfz"/>
                         <outlet property="pyTextField" destination="PrE-wV-0Ty" id="w6d-1X-wnq"/>
                         <outlet property="versionSegment" destination="kcB-BT-7cn" id="utP-5G-Qhs"/>
+                        <segue destination="oco-jZ-rDe" kind="modal" id="4vn-Pw-EWF"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2" y="719"/>
+        </scene>
+        <!--Enter View Controller-->
+        <scene sceneID="cEx-VT-SiE">
+            <objects>
+                <viewController storyboardIdentifier="EnterViewController" id="oco-jZ-rDe" customClass="EnterViewController" customModule="XlogDec" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="GQg-Lf-px5">
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="s4I-MN-59m" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="1495"/>
         </scene>
     </scenes>
 </document>

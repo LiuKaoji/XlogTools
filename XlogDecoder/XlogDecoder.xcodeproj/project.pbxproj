@@ -3,44 +3,57 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3618C6F225E4CC9900375F5A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3618C6F025E4CC9900375F5A /* ProgressHUD.swift */; };
+		3618C6F325E4CC9900375F5A /* YRKSpinningProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3618C6F125E4CC9900375F5A /* YRKSpinningProgressIndicatorLayer.swift */; };
+		361C28DD25E3E1B200DCA92D /* DecConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C28DC25E3E1B200DCA92D /* DecConst.swift */; };
+		D5DCA7017C84F07B97126B86 /* Pods_XlogDec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8363C227EEE7EF199C740B0 /* Pods_XlogDec.framework */; };
 		E444911925C565BC00F90C65 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911825C565BB00F90C65 /* AdapterTableView.swift */; };
 		E444911C25C566A400F90C65 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911B25C566A400F90C65 /* TableView.swift */; };
 		E444911F25C56A7E00F90C65 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444911E25C56A7E00F90C65 /* BaseView.swift */; };
 		E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2CA24FA37C300448893 /* AppDelegate.swift */; };
-		E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2CC24FA37C300448893 /* ViewController.swift */; };
+		E45ED2CD24FA37C300448893 /* DecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2CC24FA37C300448893 /* DecViewController.swift */; };
 		E45ED2CF24FA37C400448893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2CE24FA37C400448893 /* Assets.xcassets */; };
 		E45ED2D224FA37C400448893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2D024FA37C400448893 /* Main.storyboard */; };
-		E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = E45ED2DB24FA37D400448893 /* MBDropZone.m */; };
-		E45ED2DF24FA398B00448893 /* decode_mars_log_file.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */; };
-		E45ED2E124FA399300448893 /* decode_mars_log_file_3.py in Resources */ = {isa = PBXBuildFile; fileRef = E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */; };
-		E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D63ED25C5819400E21D0D /* MonitorModel.swift */; };
 		E46D648425C6C39700E21D0D /* Array + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D648325C6C39700E21D0D /* Array + ext.swift */; };
 		E46D648825C6C3CB00E21D0D /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D648725C6C3CB00E21D0D /* String + ext.swift */; };
+		E4A565BF25E290AE00516748 /* EnterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A565BE25E290AE00516748 /* EnterItemView.swift */; };
+		E4CD4B5325E2A07C0027CAE5 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD4B5225E2A07C0027CAE5 /* EnterViewController.swift */; };
+		E4D6DB8625E22B5D006E8038 /* Scripts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4D6DB8525E22B5D006E8038 /* Scripts.bundle */; };
+		E4D6DC0A25E23164006E8038 /* DecManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6DC0925E23164006E8038 /* DecManager.swift */; };
+		E4D6DC0D25E23417006E8038 /* DecItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6DC0C25E23417006E8038 /* DecItem.swift */; };
+		E4D6DC2325E2592E006E8038 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6DC2225E2592E006E8038 /* DropView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3618C6F025E4CC9900375F5A /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		3618C6F125E4CC9900375F5A /* YRKSpinningProgressIndicatorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRKSpinningProgressIndicatorLayer.swift; sourceTree = "<group>"; };
+		361C28DC25E3E1B200DCA92D /* DecConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecConst.swift; sourceTree = "<group>"; };
+		6004594067184FE4E7D37431 /* Pods-XlogDec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlogDec.release.xcconfig"; path = "Target Support Files/Pods-XlogDec/Pods-XlogDec.release.xcconfig"; sourceTree = "<group>"; };
+		B8363C227EEE7EF199C740B0 /* Pods_XlogDec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlogDec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C56785D474C2F58C5955D928 /* Pods-XlogDec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlogDec.debug.xcconfig"; path = "Target Support Files/Pods-XlogDec/Pods-XlogDec.debug.xcconfig"; sourceTree = "<group>"; };
 		E444911825C565BB00F90C65 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
 		E444911B25C566A400F90C65 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E444911E25C56A7E00F90C65 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		E45ED2C724FA37C300448893 /* Xlog解压工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xlog解压工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E45ED2C724FA37C300448893 /* XlogDec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XlogDec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45ED2CA24FA37C300448893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E45ED2CC24FA37C300448893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E45ED2CC24FA37C300448893 /* DecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecViewController.swift; sourceTree = "<group>"; };
 		E45ED2CE24FA37C400448893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E45ED2D124FA37C400448893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E45ED2D324FA37C400448893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E45ED2D424FA37C400448893 /* XlogDecoder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XlogDecoder.entitlements; sourceTree = "<group>"; };
 		E45ED2DA24FA37D300448893 /* XlogDecoder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlogDecoder-Bridging-Header.h"; sourceTree = "<group>"; };
-		E45ED2DB24FA37D400448893 /* MBDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDropZone.m; sourceTree = "<group>"; };
-		E45ED2DC24FA37D400448893 /* MBDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDropZone.h; sourceTree = "<group>"; };
-		E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file.py; sourceTree = "<group>"; };
-		E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = decode_mars_log_file_3.py; sourceTree = "<group>"; };
-		E46D63ED25C5819400E21D0D /* MonitorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorModel.swift; sourceTree = "<group>"; };
 		E46D648325C6C39700E21D0D /* Array + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + ext.swift"; sourceTree = "<group>"; };
 		E46D648725C6C3CB00E21D0D /* String + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ext.swift"; sourceTree = "<group>"; };
+		E4A565BE25E290AE00516748 /* EnterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterItemView.swift; sourceTree = "<group>"; };
+		E4CD4B5225E2A07C0027CAE5 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		E4D6DB8525E22B5D006E8038 /* Scripts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Scripts.bundle; sourceTree = "<group>"; };
+		E4D6DC0925E23164006E8038 /* DecManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecManager.swift; sourceTree = "<group>"; };
+		E4D6DC0C25E23417006E8038 /* DecItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecItem.swift; sourceTree = "<group>"; };
+		E4D6DC2225E2592E006E8038 /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,24 +61,78 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5DCA7017C84F07B97126B86 /* Pods_XlogDec.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2370A25CACFF5795F30CF795 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C56785D474C2F58C5955D928 /* Pods-XlogDec.debug.xcconfig */,
+				6004594067184FE4E7D37431 /* Pods-XlogDec.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3618C6EE25E4CC8300375F5A /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3618C6EF25E4CC8F00375F5A /* ProgressHUD */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		3618C6EF25E4CC8F00375F5A /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3618C6F025E4CC9900375F5A /* ProgressHUD.swift */,
+				3618C6F125E4CC9900375F5A /* YRKSpinningProgressIndicatorLayer.swift */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		361C28DA25E3E17100DCA92D /* RoomEvent */ = {
+			isa = PBXGroup;
+			children = (
+				361C28DB25E3E18E00DCA92D /* View */,
+				E4CD4B5225E2A07C0027CAE5 /* EnterViewController.swift */,
+			);
+			path = RoomEvent;
+			sourceTree = "<group>";
+		};
+		361C28DB25E3E18E00DCA92D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E480010425C571EB004BFE58 /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		68B25D68CFA9954E71C07A29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8363C227EEE7EF199C740B0 /* Pods_XlogDec.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E45ED2BE24FA37C300448893 = {
 			isa = PBXGroup;
 			children = (
 				E45ED2C924FA37C300448893 /* XlogDecoder */,
 				E45ED2C824FA37C300448893 /* Products */,
+				2370A25CACFF5795F30CF795 /* Pods */,
+				68B25D68CFA9954E71C07A29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		E45ED2C824FA37C300448893 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E45ED2C724FA37C300448893 /* Xlog解压工具.app */,
+				E45ED2C724FA37C300448893 /* XlogDec.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,42 +140,22 @@
 		E45ED2C924FA37C300448893 /* XlogDecoder */ = {
 			isa = PBXGroup;
 			children = (
+				3618C6EE25E4CC8300375F5A /* Vendors */,
+				E4D6DC0325E2312C006E8038 /* Utils */,
+				E4D6DB7D25E2295C006E8038 /* Others */,
 				E46D647E25C6C33800E21D0D /* Extension */,
 				E46D63EC25C5817500E21D0D /* Module */,
 				E45ED2CA24FA37C300448893 /* AppDelegate.swift */,
-				E45ED2CC24FA37C300448893 /* ViewController.swift */,
-				E45ED2CE24FA37C400448893 /* Assets.xcassets */,
 				E45ED2D024FA37C400448893 /* Main.storyboard */,
-				E45ED2D324FA37C400448893 /* Info.plist */,
-				E45ED2D424FA37C400448893 /* XlogDecoder.entitlements */,
-				E45ED2DA24FA37D300448893 /* XlogDecoder-Bridging-Header.h */,
 			);
 			path = XlogDecoder;
-			sourceTree = "<group>";
-		};
-		E45ED2E224FA399600448893 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				E45ED2DE24FA398B00448893 /* decode_mars_log_file.py */,
-				E45ED2E024FA399300448893 /* decode_mars_log_file_3.py */,
-			);
-			path = Scripts;
-			sourceTree = "<group>";
-		};
-		E46D63EB25C5817100E21D0D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E46D63ED25C5819400E21D0D /* MonitorModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E46D63EC25C5817500E21D0D /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				E46D647C25C6C2D600E21D0D /* View */,
-				E45ED2E224FA399600448893 /* Scripts */,
-				E46D63EB25C5817100E21D0D /* Model */,
+				361C28DA25E3E17100DCA92D /* RoomEvent */,
+				E4D6DB8325E22A99006E8038 /* Decoder */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -116,8 +163,7 @@
 		E46D647C25C6C2D600E21D0D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E4FB293624FAB68100546854 /* DragView */,
-				E480010425C571EB004BFE58 /* MonitorTable */,
+				E4FB293624FAB68100546854 /* DropView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,43 +177,84 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		E480010425C571EB004BFE58 /* MonitorTable */ = {
+		E480010425C571EB004BFE58 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
 				E444911825C565BB00F90C65 /* AdapterTableView.swift */,
 				E444911B25C566A400F90C65 /* TableView.swift */,
 				E444911E25C56A7E00F90C65 /* BaseView.swift */,
+				E4A565BE25E290AE00516748 /* EnterItemView.swift */,
 			);
-			path = MonitorTable;
+			path = TableView;
 			sourceTree = "<group>";
 		};
-		E4FB293624FAB68100546854 /* DragView */ = {
+		E4D6DB7D25E2295C006E8038 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				E45ED2DC24FA37D400448893 /* MBDropZone.h */,
-				E45ED2DB24FA37D400448893 /* MBDropZone.m */,
+				E4D6DB8525E22B5D006E8038 /* Scripts.bundle */,
+				E45ED2CE24FA37C400448893 /* Assets.xcassets */,
+				E45ED2D324FA37C400448893 /* Info.plist */,
+				E45ED2D424FA37C400448893 /* XlogDecoder.entitlements */,
+				E45ED2DA24FA37D300448893 /* XlogDecoder-Bridging-Header.h */,
 			);
-			path = DragView;
+			path = Others;
+			sourceTree = "<group>";
+		};
+		E4D6DB8325E22A99006E8038 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				E45ED2CC24FA37C300448893 /* DecViewController.swift */,
+				E4D6DC0025E22FE0006E8038 /* Model */,
+				E46D647C25C6C2D600E21D0D /* View */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		E4D6DC0025E22FE0006E8038 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6DC0C25E23417006E8038 /* DecItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E4D6DC0325E2312C006E8038 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6DC0925E23164006E8038 /* DecManager.swift */,
+				361C28DC25E3E1B200DCA92D /* DecConst.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E4FB293624FAB68100546854 /* DropView */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6DC2225E2592E006E8038 /* DropView.swift */,
+			);
+			path = DropView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E45ED2C624FA37C300448893 /* Xlog解压工具 */ = {
+		E45ED2C624FA37C300448893 /* XlogDec */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E45ED2D724FA37C400448893 /* Build configuration list for PBXNativeTarget "Xlog解压工具" */;
+			buildConfigurationList = E45ED2D724FA37C400448893 /* Build configuration list for PBXNativeTarget "XlogDec" */;
 			buildPhases = (
+				50761B767F6603D24B05B769 /* [CP] Check Pods Manifest.lock */,
 				E45ED2C324FA37C300448893 /* Sources */,
 				E45ED2C424FA37C300448893 /* Frameworks */,
 				E45ED2C524FA37C300448893 /* Resources */,
+				039EE1A8B52F2DFB25A7FD03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Xlog解压工具";
+			name = XlogDec;
 			productName = XlogDecoder;
-			productReference = E45ED2C724FA37C300448893 /* Xlog解压工具.app */;
+			productReference = E45ED2C724FA37C300448893 /* XlogDec.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +286,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E45ED2C624FA37C300448893 /* Xlog解压工具 */,
+				E45ED2C624FA37C300448893 /* XlogDec */,
 			);
 		};
 /* End PBXProject section */
@@ -209,28 +296,75 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E45ED2E124FA399300448893 /* decode_mars_log_file_3.py in Resources */,
 				E45ED2CF24FA37C400448893 /* Assets.xcassets in Resources */,
 				E45ED2D224FA37C400448893 /* Main.storyboard in Resources */,
-				E45ED2DF24FA398B00448893 /* decode_mars_log_file.py in Resources */,
+				E4D6DB8625E22B5D006E8038 /* Scripts.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		039EE1A8B52F2DFB25A7FD03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XlogDec/Pods-XlogDec-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XlogDec/Pods-XlogDec-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XlogDec/Pods-XlogDec-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50761B767F6603D24B05B769 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XlogDec-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E45ED2C324FA37C300448893 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E45ED2DD24FA37D400448893 /* MBDropZone.m in Sources */,
+				E4D6DC0A25E23164006E8038 /* DecManager.swift in Sources */,
+				E4A565BF25E290AE00516748 /* EnterItemView.swift in Sources */,
+				3618C6F325E4CC9900375F5A /* YRKSpinningProgressIndicatorLayer.swift in Sources */,
+				E4D6DC0D25E23417006E8038 /* DecItem.swift in Sources */,
 				E46D648825C6C3CB00E21D0D /* String + ext.swift in Sources */,
+				E4D6DC2325E2592E006E8038 /* DropView.swift in Sources */,
+				E4CD4B5325E2A07C0027CAE5 /* EnterViewController.swift in Sources */,
+				3618C6F225E4CC9900375F5A /* ProgressHUD.swift in Sources */,
 				E444911C25C566A400F90C65 /* TableView.swift in Sources */,
+				361C28DD25E3E1B200DCA92D /* DecConst.swift in Sources */,
 				E444911925C565BC00F90C65 /* AdapterTableView.swift in Sources */,
 				E444911F25C56A7E00F90C65 /* BaseView.swift in Sources */,
-				E45ED2CD24FA37C300448893 /* ViewController.swift in Sources */,
+				E45ED2CD24FA37C300448893 /* DecViewController.swift in Sources */,
 				E45ED2CB24FA37C300448893 /* AppDelegate.swift in Sources */,
-				E46D63EE25C5819400E21D0D /* MonitorModel.swift in Sources */,
 				E46D648425C6C39700E21D0D /* Array + ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,20 +498,18 @@
 		};
 		E45ED2D824FA37C400448893 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C56785D474C2F58C5955D928 /* Pods-XlogDec.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					x86_64,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
+				CODE_SIGN_ENTITLEMENTS = XlogDecoder/Others/XlogDecoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = XlogDecoder/Info.plist;
+				INFOPLIST_FILE = XlogDecoder/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -387,7 +519,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/Others/XlogDecoder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -395,20 +527,18 @@
 		};
 		E45ED2D924FA37C400448893 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6004594067184FE4E7D37431 /* Pods-XlogDec.release.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					x86_64,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = XlogDecoder/XlogDecoder.entitlements;
+				CODE_SIGN_ENTITLEMENTS = XlogDecoder/Others/XlogDecoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = F9E6VPNRYT;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = XlogDecoder/Info.plist;
+				INFOPLIST_FILE = XlogDecoder/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -418,7 +548,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaoji.XlogDecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/XlogDecoder-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlogDecoder/Others/XlogDecoder-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -435,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E45ED2D724FA37C400448893 /* Build configuration list for PBXNativeTarget "Xlog解压工具" */ = {
+		E45ED2D724FA37C400448893 /* Build configuration list for PBXNativeTarget "XlogDec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E45ED2D824FA37C400448893 /* Debug */,
