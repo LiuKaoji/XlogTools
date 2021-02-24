@@ -6,7 +6,7 @@ target 'XlogDec' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Sparkle'
+  #pod 'Sparkle'
   pod 'MMKV'
 
 end

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 protocol DropViewDelegate: class {
     func dropFiles(fileURLs: Array<String>, isAny: Bool)

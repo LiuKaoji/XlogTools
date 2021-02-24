@@ -13,7 +13,7 @@ protocol DecManagerDelegate {
     
     func onDecStart()
     
-    func onDecProgressUpdate(progress: Double)
+    func onDecProgressUpdate(progress: Double, progessText: String)
     
     func onDecFinish()
     
@@ -56,7 +56,7 @@ class DecManager: NSObject {
         var items = Array<DecItem>()
         
         var parsedCount:Double = 0
-        for filePath in files{
+        for filePath in files {
             
             decQueue.async(group: taskGroup) {
                 
@@ -66,7 +66,9 @@ class DecManager: NSObject {
                     
                     if delegate != nil {
                         parsedCount += 1
-                        delegate?.onDecProgressUpdate(progress: parsedCount/(Double)(files.count))
+                        let progress = parsedCount/(Double)(files.count)
+                        let progressStr = "\((Int)(parsedCount))/\(files.count)"
+                        delegate?.onDecProgressUpdate(progress: progress, progessText: progressStr)
                     }
                     
                     debugPrint("[DecManager]解压结束:\(filePath)")

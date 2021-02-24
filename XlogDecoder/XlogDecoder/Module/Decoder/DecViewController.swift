@@ -11,13 +11,6 @@ import Python
 import MMKV
 
 class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
-   
-    lazy var enterRoomVC: EnterViewController = {
-        let st = NSStoryboard.init(name: "Main", bundle: nil)
-        let enterVC: EnterViewController = st.instantiateController(withIdentifier: .init("EnterViewController")) as! EnterViewController
-        self.addChild(enterVC)
-        return enterVC
-    }()
 
     var autoOpenState:Bool =  MMKV.default()?.bool(forKey: K_Open) ?? false///但文件自动解压
     var autoCheckState:Bool =  MMKV.default()?.bool(forKey: K_Check) ?? false///自动检测进房事件
@@ -31,11 +24,11 @@ class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         decItems = Array<DecItem>()
-        setupUI()
+        loadConfig()
     }
    
     //MARK: UI
-    func setupUI(){
+    func loadConfig(){
         
         /// 初始化 是否单文件自动打开
         self.autoOpenBox.state = autoOpenState ?.on:.off
@@ -57,6 +50,9 @@ class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
         let pyVersionStr  = String.init(cString: Py_GetVersion())
         let result = pyVersionStr.components(separatedBy: " ")
         pyTextField.stringValue = "您当前正使用 Python" + "(" + (result.first ?? "unknown") + ")"
+        
+        /// 设置HUD样式
+        configHUD()
     }
     
 
@@ -116,8 +112,11 @@ extension DecViewController{
             /// 解释到进房数据 弹窗展示
             if(items.count > 0){
                 
-                self!.enterRoomVC.items = items
-                self?.presentAsModalWindow(self!.enterRoomVC)
+                let st = NSStoryboard.init(name: "Main", bundle: nil)
+                let enterVC: EnterViewController = st.instantiateController(withIdentifier: .init("EnterViewController")) as! EnterViewController
+                self?.addChild(enterVC)
+                enterVC.items = items
+                self?.presentAsModalWindow(enterVC)
                 
             }
         }
@@ -130,12 +129,11 @@ extension DecViewController{
     
     
     func onDecStart() {
-        configHUD()
-        ProgressHUD.show(withStatus: "请稍后…")
+        ProgressHUD.show(progress: 0, status: "请稍后...")
     }
     
-    func onDecProgressUpdate(progress: Double) {
-        ProgressHUD.show(progress: progress, status: "请稍后…")
+    func onDecProgressUpdate(progress: Double, progessText: String) {
+        ProgressHUD.show(progress: progress, status: "请稍后...")
     }
     
     func onDecFinish() {
@@ -144,8 +142,8 @@ extension DecViewController{
     }
     
     func configHUD() {
-        ProgressHUD.setDefaultStyle(.light)
-        ProgressHUD.setDefaultMaskType(.black)
+        //ProgressHUD.setDefaultStyle(.light)
+        //ProgressHUD.setDefaultMaskType(.black)
         ProgressHUD.setDefaultPosition(.center)
         ProgressHUD.setContainerView(view)
     }
