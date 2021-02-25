@@ -81,6 +81,13 @@ class DecManager: NSObject {
             
             DispatchQueue.main.async { [self] in
                 debugPrint("[Dec Tasks Complete]")
+                
+                /// 去重排序 如果我批量解压过 会有两种日志 这时候全部拖进来也不影响 不重复
+                let filterModels:Array<DecItem> = (items.filterDuplicates({$0.enterEvent}))
+                items = filterModels.sorted(by: { (previous, next) -> Bool in
+                    return previous.time < next.time
+                })
+                
                 dec(items)/// 任务完成 回调主线程给UI处理
                 
                 ///任务开始
@@ -94,6 +101,34 @@ class DecManager: NSObject {
     
     private func parseDecItem(logPath: URL, taskClouse: @escaping TaskClourse){
         
+        let decPath = logPath.path
+        
+        /// 已解压日志->直接读取进房事件
+        if logPath.pathExtension == ".log" {
+            if(MMKV.default()?.bool(forKey: K_Check) ?? false){
+                taskClouse(self.parseUsingRegx(logPath))///读取进房事件并生成model
+            }else{
+                taskClouse(nil)
+            }
+           
+            return
+        }
+        
+        ///不加密日志->添加后缀再读取进房事件
+        if decPath.contains("LiteAV_R") && !FileManager.default.fileExists(atPath: decPath) {
+            try? FileManager.default.copyItem(atPath: logPath.path, toPath: decPath)
+           
+            if(MMKV.default()?.bool(forKey: K_Check) ?? false){
+                taskClouse(self.parseUsingRegx(logPath))///读取进房事件并生成model
+            }else{
+                taskClouse(nil)
+            }
+            
+            return
+        }
+        
+        
+        /// 加密文件先执行解密
         // 01.初始化任务
         let buildTask = Process()
         buildTask.launchPath = "/usr/bin/python"
@@ -129,11 +164,9 @@ class DecManager: NSObject {
     private func parseUsingRegx(_ logPath: URL) -> DecItem?{
         
         ///解压路径
-        let decPath = logPath.path + ".log"
-        
-        /// 不加密的文件copy一份添加后缀,不加密也是.xlog但是无法直接双击打开
-        if decPath.contains("LiteAV_R") && !FileManager.default.fileExists(atPath: decPath) {
-            try? FileManager.default.copyItem(atPath: logPath.path, toPath: decPath)
+        var decPath = logPath.path
+        if !logPath.path.hasSuffix(".log") {
+            decPath = logPath.path + ".log"
         }
         
         /// 文件不存在 可能该任务解压失败

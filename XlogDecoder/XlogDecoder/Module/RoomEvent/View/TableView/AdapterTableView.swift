@@ -49,7 +49,6 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard (tableColumn?.identifier)!.rawValue == AdapterTableView.column else { fatalError("AdapterTableView identifier not found") }
         let model:DecItem = items[row]
-        let name = "⏰进房时间:\(model.time) 🏬sdkAppId:\(model.sdkAppid) 👨‍👩‍👧‍👦roomId:\(model.roomId) 🙋‍♂️userId:\(model.userId)".replacingOccurrences(of: "+8.0", with: "")
         
         let theFrame = NSRect.init(x: 0, y: 0, width: self.tableView.frame.width, height: 100)
         let enterView = EnterItemView.init(frame: theFrame)

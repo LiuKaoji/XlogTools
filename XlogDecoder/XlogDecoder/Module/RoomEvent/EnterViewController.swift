@@ -97,7 +97,7 @@ class EnterViewController: NSViewController {
     
     func actionForCopy(dec: DecItem){
         
-        let text = "⏰进房时间:\(dec.time) 🏬应用标识:\(dec.sdkAppid) 👨‍👩‍👧‍👦房间号码:\(dec.roomId) 🙋‍♂️用户身份:\(dec.userId)"
+        let text = "Time:\(dec.time) SdkAppid:\(dec.sdkAppid) RoomId:\(dec.roomId) UserId:\(dec.userId)"
         let paste = NSPasteboard.init(name: .general)
         paste.clearContents()
         paste.setString(text, forType: .string)
