@@ -78,7 +78,7 @@ class DropView: NSView {
     private var selectedFileExtension: FileExtensionTypes = .none
     private var fileExtensionIsAllowed = false
     private var wasDropAbandoned = false
-    private static let defaultDropViewTitle = "请拖拽[*.xlog||*.log](支持多任务)"
+    private static let defaultDropViewTitle = "请拖拽[*.xlog或*.log](支持多任务)"
     weak var delegate: DropViewDelegate?
 
     
