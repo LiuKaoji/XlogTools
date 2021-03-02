@@ -116,8 +116,9 @@ extension DecViewController{
                 let enterVC: EnterViewController = st.instantiateController(withIdentifier: .init("EnterViewController")) as! EnterViewController
                 self?.addChild(enterVC)
                 enterVC.items = items
-                self?.presentAsModalWindow(enterVC)
                 
+                self?.presentAsModalWindow(enterVC)
+           
             }
         }
     }

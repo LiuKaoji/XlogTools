@@ -15,7 +15,7 @@ protocol AdapterTableViewDelegate {
 
 class AdapterTableView: NSObject {
     fileprivate static let column = "column"
-    fileprivate static let heightOfRow: CGFloat = 100
+    fileprivate static let heightOfRow: CGFloat = 120
     
     fileprivate var items: [DecItem] = [DecItem]() {
         didSet {
@@ -53,10 +53,7 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
         let theFrame = NSRect.init(x: 0, y: 0, width: self.tableView.frame.width, height: 100)
         let enterView = EnterItemView.init(frame: theFrame)
         enterView.item = model;
-//        let view = NSTextField(string: name)
-//        view.isEditable = false
-//        view.isBordered = false
-//        view.backgroundColor = .clear
+
         return enterView
     }
     
@@ -73,38 +70,20 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
         return "?????????"
     }
 
-    
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        
-//        let selectedRow = tableView.selectedRow
 //
-//        /// Mac 有-1的
-//        guard selectedRow >= 0  else{
-//            return
+//    func tableViewSelectionDidChange(_ notification: Notification) {
+//
+//        let menu = NSMenu.init(title: "选项")
+//        let menuItemTypes:Array<EnterMenuType> = [.copy, .position, .monitor, .kibana, .fetchLog]
+//
+//        for type in menuItemTypes {
+//
+//            let menuItem = NSMenuItem.init(title: type.rawValue, action: #selector(onClickMenu(item:)), keyEquivalent: "")
+//            menu.addItem(menuItem)
+//
 //        }
-//
-//        let model = items[selectedRow]
-//        var monitorLink = "http://monitor.yy.isd.com/trtc/monitor?userId=\(model.userId)&roomNum=\(model.roomId)&roomStr=\(model.roomId)&sdkAppId=\(model.sdkAppid)&StartTs=\(model.timestamp)&EndTs=\(model.dayMaxStamp)"
-//        monitorLink = monitorLink.replacingOccurrences(of: " ", with: "")
-//        monitorLink = monitorLink.replacingOccurrences(of: "()", with: "")
-//
-//        guard let monitorURL = URL(string:monitorLink) else {
-//           debugPrint("Open MonitorURL Error")
-//           return
-//        }
-//
-//        NSWorkspace.shared.open(monitorURL)
-        let menu = NSMenu.init(title: "选项")
-        let menuItemTypes:Array<EnterMenuType> = [.copy, .position, .monitor, .kibana, .fetchLog]
-        
-        for type in menuItemTypes {
-            
-            let menuItem = NSMenuItem.init(title: type.rawValue, action: #selector(onClickMenu(item:)), keyEquivalent: "")
-            menu.addItem(menuItem)
-            
-        }
-        //NSMenu.popUpContextMenu(menu, with: <#T##NSEvent#>, for: <#T##NSView#>, with: <#T##NSFont?#>)
-    }
+//        //NSMenu.popUpContextMenu(menu, with: <#T##NSEvent#>, for: <#T##NSView#>, with: <#T##NSFont?#>)
+//    }
     
     @objc func onClickMenu(item :NSMenuItem) {
         debugPrint("[Menu Click]\(item.title)")

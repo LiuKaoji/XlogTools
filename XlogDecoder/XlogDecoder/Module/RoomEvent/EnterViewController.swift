@@ -87,7 +87,6 @@ class EnterViewController: NSViewController {
             /// 仪表盘
             actionForMonitor(dec: decItem!)
             
-            break
             
         default:
             break
@@ -97,7 +96,7 @@ class EnterViewController: NSViewController {
     
     func actionForCopy(dec: DecItem){
         
-        let text = "Time:\(dec.time) SdkAppid:\(dec.sdkAppid) RoomId:\(dec.roomId) UserId:\(dec.userId)"
+        let text = "time:\(dec.time)\nsdkAppid:\(dec.sdkAppid)\nroomId:\(dec.roomId)\nuserId:\(dec.userId)" + (dec.sdkVer.count > 0 ?"\nSdkVer: \(dec.sdkVer)":"")
         let paste = NSPasteboard.init(name: .general)
         paste.clearContents()
         paste.setString(text, forType: .string)
@@ -159,4 +158,5 @@ class EnterViewController: NSViewController {
         
         NSWorkspace.shared.open(monitorURL)
     }
+    
 }

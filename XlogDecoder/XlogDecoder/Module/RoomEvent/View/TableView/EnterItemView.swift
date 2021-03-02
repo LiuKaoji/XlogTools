@@ -10,11 +10,12 @@ import Cocoa
 import SnapKit
 
 enum EnterMenuType: String {
-    case copy      = "复制信息"/// 复制当前进房信息
-    case position  = "定位文件"/// 定位至该进房信息的文件(目前点击仪表盘之后可能还得找哪个日志文件)
-    case monitor   = "仪表盘"/// 跳转至仪表盘填写一些数据
-    case kibana    = "kibana"/// 查找kibana日志
-    case fetchLog  = "当天日志"/// 后台捞日志
+    case copy         = "复制信息"/// 复制当前进房信息
+    case position     = "定位文件"/// 定位至该进房信息的文件(目前点击仪表盘之后可能还得找哪个日志文件)
+    case monitor      = "仪表盘"/// 跳转至仪表盘填写一些数据
+    case kibana       = "kibana"/// 查找kibana日志
+    case fetchLog     = "当天日志"/// 后台捞日志
+    case Environment  = "版本机型"/// SDK版本和机型
 }
 
 struct EnterAction {
@@ -65,10 +66,11 @@ class EnterItemView: NSView {
     var item : DecItem? {
      
         didSet{
-            self.appMsg.stringValue  =  "🏬_SDK: \(item?.sdkAppid ?? "NULL")"
-            self.roomMsg.stringValue =  "👨‍👩‍👧‍👦ROOM: \(item?.roomId ?? "NULL")"
-            self.userMsg.stringValue =  "🙋‍♂️USER: \(item?.userId ?? "NULL")"
-            self.timeMsg.stringValue =  "⏰TIME: \(item?.time   ?? "NULL")"
+            self.appMsg.stringValue  =  "🏬应用:  \(item?.sdkAppid ?? "NULL")"
+            self.roomMsg.stringValue =  "👨‍👩‍👧‍👦房间:  \(item?.roomId ?? "NULL")"
+            self.userMsg.stringValue =  "🙋‍♂️用户:  \(item?.userId ?? "NULL")"
+            self.envMsg.stringValue =   "📱版本:  \(item!.sdkVer) 型号: \(item!.device) 系统: \(item!.sysVer)"
+            self.timeMsg.stringValue =  "⏰时间:  \(item?.time   ?? "NULL")"
             
             debugPrint("🏬[_SDK]: \(item?.sdkAppid ?? "NULL")")
         }
@@ -79,6 +81,8 @@ class EnterItemView: NSView {
     private var roomMsg: NSTextField!
     
     private var userMsg: NSTextField!
+    
+    private var envMsg: NSTextField!
     
     private var timeMsg: NSTextField!
     
@@ -110,6 +114,7 @@ class EnterItemView: NSView {
         appMsg  = createTitleView(font: NSFont.boldSystemFont(ofSize: 13), textColor: NSColor.textColor)
         roomMsg = createTitleView(font: NSFont.boldSystemFont(ofSize: 13), textColor: NSColor.textColor)
         userMsg = createTitleView(font: NSFont.boldSystemFont(ofSize: 13), textColor: NSColor.textColor)
+        envMsg = createTitleView(font: NSFont.boldSystemFont(ofSize: 13), textColor: NSColor.textColor)
         timeMsg = createTitleView(font: NSFont.boldSystemFont(ofSize: 13), textColor: NSColor.textColor)
         
         maskView = MouseMaskView.init(action: { (type) -> (Void) in
@@ -124,6 +129,7 @@ class EnterItemView: NSView {
         
         self.addSubview(appMsg)
         self.addSubview(roomMsg)
+        self.addSubview(envMsg)
         self.addSubview(userMsg)
         self.addSubview(timeMsg)
         self.addSubview(maskView)
@@ -148,9 +154,16 @@ class EnterItemView: NSView {
             make.height.equalTo(20)
         }
         
-        self.timeMsg.snp.makeConstraints { (make) in
+        self.envMsg.snp.makeConstraints { (make) in
             make.left.equalTo(15)
             make.top.equalTo(userMsg.snp.bottom)
+            make.width.equalTo(self)
+            make.height.equalTo(20)
+        }
+        
+        self.timeMsg.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(envMsg.snp.bottom)
             make.width.equalTo(self)
             make.height.equalTo(20)
         }

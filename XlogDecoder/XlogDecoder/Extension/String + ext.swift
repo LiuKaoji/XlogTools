@@ -20,6 +20,10 @@ extension String{
         return Int(timeStamp ?? 0)
     }
     
+    static func timeToDecStamp(time: String) -> Int {
+        return timeToTimeStamp(time: time, inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS")
+    }
+    
     ///时间转时间戳
     static func timeToDayMaxStamp(time: String ,inputFormatter:String) -> Int {
         let dfmatter = DateFormatter()
@@ -28,6 +32,20 @@ extension String{
         let last = dfmatter.date(from: time)
         let timeStamp = last?.timeIntervalSince1970
         return Int(timeStamp ?? 0)
+    }
+    
+    /// 截取指定Range的长度
+    func subRangeStr(range: NSRange) -> String{
+        
+        let st = self.index(startIndex, offsetBy: range.location)
+        let en = self.index(st, offsetBy: range.length)
+        return String(self[st ..< en])
+    }
+    
+    /// 捞日志的dateRange
+    static func dateToDayRange(date: String) ->String{
+        
+        return "daterange[]=\(date) 00:00:00&daterange[]=\(date) 23:59:59"
     }
     
     func showInComma(source: String, gap: Int=3, seperator: Character=",") -> String {

@@ -22,13 +22,13 @@ protocol DecManagerDelegate {
 class DecManager: NSObject {
     
     /// 单例
-  static let manager = DecManager()
+    static let manager = DecManager()
     
    /// 代理
     var delegate: DecManagerDelegate?
     
     /// 脚本
-   var scriptPath: String {
+    var scriptPath: String {
         get{
             
            let is3X = MMKV.default()?.bool(forKey: K_Script) ?? false
@@ -43,7 +43,7 @@ class DecManager: NSObject {
     
     /// 数据传递
     typealias DecClourse = ((Array<DecItem>) -> (Void))
-    typealias TaskClourse = ((DecItem?) -> (Void))
+    typealias TaskClourse = (([DecItem]?) -> (Void))
     
     //MARK: 解码文件
     public func decItems(files: Array<String>, dec: @escaping DecClourse){
@@ -62,7 +62,7 @@ class DecManager: NSObject {
                 
                 let fileURL = URL.init(fileURLWithPath: filePath)
                 self.parseDecItem(logPath: fileURL, taskClouse: { [self] item in
-                    (item != nil && (item?.sdkAppid.count ?? 0) > 0) ?items.append(item!):nil
+                    item?.count ?? 0 > 0 ?items.append(contentsOf: item!):nil
                     
                     if delegate != nil {
                         parsedCount += 1
@@ -161,7 +161,7 @@ class DecManager: NSObject {
         
     }
     
-    private func parseUsingRegx(_ logPath: URL) -> DecItem?{
+    private func parseUsingRegx(_ logPath: URL)->[DecItem]?{
         
         ///解压路径
         var decPath = logPath.path
@@ -184,33 +184,61 @@ class DecManager: NSObject {
             return nil
         }
         
-        /// 读取EnterRoom事件
-        let regx = "([\\d\\s\\-\\+\\s:\\.]{20,}).*trtc_api[\\s,]+enterRoom roomId:(.*?)\\suserId:(.*?)\\ssdkAppId:(.*?)\\s"
-        let regExp = try? NSRegularExpression.init(pattern: regx, options: .caseInsensitive)
-        let matches = regExp!.matches(in: logs, range: NSRange.init(location: 0, length: logs.count))
+        var decArray = Array<DecItem>()
         
-        var decItem = DecItem()
-        for match in matches {
+        /// 读取EnterRoom事件
+        let roomExp = try? NSRegularExpression.init(pattern: Regx_Room, options: .caseInsensitive)
+        let roomMatches = roomExp!.matches(in: logs, range: NSRange.init(location: 0, length: logs.count))
+        
+        /// 尝试读取环境版本信息
+        let envExp = try? NSRegularExpression.init(pattern: Regx_Env, options: .caseInsensitive)
+        let envMatch = envExp!.firstMatch(in: logs, options: .reportProgress, range: NSRange.init(location: 0, length: logs.count))
+        
+        var envStr : String?
+        var sdkVer : String?
+        var device : String?
+        var sysVer : String?
+        if envMatch?.numberOfRanges ?? 0 > 0{
+            envStr = logs.subRangeStr(range: (envMatch?.range(at: 0))!)
+            sdkVer = logs.subRangeStr(range: (envMatch?.range(at: 1))!)
+            device = logs.subRangeStr(range: (envMatch?.range(at: 2))!)
+            sysVer = logs.subRangeStr(range: (envMatch?.range(at: 3))!)
+        }
+        
+        for (_ , matchItem) in roomMatches.enumerated() {
             
-            decItem.enterEvent = logs.substring(with: Range.init(match.range(at: 0), in: logs)!)
-            decItem.time = logs.substring(with: Range.init(match.range(at: 1), in: logs)!)
-            decItem.roomId = logs.substring(with: Range.init(match.range(at: 2), in: logs)!)
-            decItem.userId = logs.substring(with: Range.init(match.range(at: 3), in: logs)!)
-            decItem.sdkAppid = logs.substring(with: Range.init(match.range(at: 4), in: logs)!)
-            decItem.timestamp = "\(String.timeToTimeStamp(time: decItem.time, inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
+            var decItem = DecItem()
+            
+            decItem.srcPath = logPath.path
+            decItem.dstPath = decPath
+            
+            decItem.enterEvent  = logs.subRangeStr(range: matchItem.range(at: 0))
+            decItem.time        = logs.subRangeStr(range: matchItem.range(at: 1))
+            decItem.roomId      = logs.subRangeStr(range: matchItem.range(at: 2))
+            decItem.userId      = logs.subRangeStr(range: matchItem.range(at: 3))
+            decItem.sdkAppid    = logs.subRangeStr(range: matchItem.range(at: 4))
+            decItem.timestamp   = "\(String.timeToDecStamp(time: decItem.time))"
             
             let dateStrip = decItem.time.prefix(10)
             decItem.dateStrip = String(dateStrip)
             
             decItem.dayMaxStamp = "\(String.timeToTimeStamp(time: dateStrip + " +8.0 23:59:59.999", inputFormatter: "yyyy-MM-dd +8.0 HH:mm:ss.SSS"))"
             
-            decItem.dateRange = "daterange[]=\(dateStrip) 00:00:00&daterange[]=\(dateStrip) 23:59:59"
+            decItem.dateRange = String.dateToDayRange(date: String(dateStrip))
             
-            decItem.srcPath = logPath.path
-            decItem.dstPath = decPath
+            if envStr != nil{
+                decItem.envInfo = envStr!
+                decItem.sdkVer  = sdkVer!
+                decItem.device  = device!
+                decItem.sysVer  = sysVer!
+            }
+            
+            decArray.append(decItem)
         }
-        return decItem
+        
+        return decArray
     }
+
 }
 
 extension DecManager{

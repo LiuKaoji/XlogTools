@@ -18,5 +18,9 @@ struct DecItem {
     var dateStrip = ""///Kibana捞日志会默认填写一整天 
     var srcPath = ""///当天最晚点的时间戳
     var dstPath = ""///当天最晚点的时间戳
+    var envInfo = ""///当天最晚点的时间戳
+    var sdkVer = ""///SD版本
+    var device = ""///设备信息
+    var sysVer = ""///系统版本
 }
 
