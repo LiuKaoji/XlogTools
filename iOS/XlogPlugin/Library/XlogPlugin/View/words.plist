@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MLVB</key>
+	<array>
+		<string>play event</string>
+		<string>play event[2004]</string>
+		<string>Licence</string>
+		<string>push event</string>
+		<string>startPush</string>
+		<string>stopPush</string>
+		<string>applicationDidBecomeActive</string>
+		<string>applicationDidEnterBackground</string>
+		<string>AudioSession</string>
+	</array>
+	<key>TRTC</key>
+	<array>
+		<string>sdkappid</string>
+		<string>EnterRoom</string>
+		<string>RenderDelegate</string>
+		<string>AudioSession</string>
+		<string>stopPreview</string>
+	</array>
+	<key>IM</key>
+	<array>
+		<string>heartbeat</string>
+		<string>sendData</string>
+		<string>group</string>
+		<string>AVChatRoom</string>
+	</array>
+</dict>
+</plist>

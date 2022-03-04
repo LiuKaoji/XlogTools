@@ -1,0 +1,19 @@
+//
+//  XlogViewer-Prefix.pch
+//  Example
+//
+//  Created by Kaoji on 2020/6/20.
+//  Copyright © 2020 Kaoji. All rights reserved.
+//
+
+#ifndef XlogViewer_Prefix_pch
+#define XlogViewer_Prefix_pch
+
+//获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
+//获取日志路径
+#define kPathLog  [kPathDocument stringByAppendingFormat:@"/log"]
+
+
+#endif /* XlogViewer_Prefix_pch */
